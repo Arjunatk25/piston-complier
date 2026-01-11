@@ -93,7 +93,19 @@ const CodeEditor: React.FC<Props> = ({ code, setCode }) => {
       onKeyDown={handleKeyDown}
       placeholder="Type Java code here..."
       rows={15}
-      style={{ width: "100%", fontFamily: "monospace", fontSize: "14px" }}
+      style={{
+        width: "100%",
+        background: "#0d1117",
+        border: "1px solid #30363d",
+        borderRadius: "12px",
+        padding: "16px",
+        color: "#c9d1d9",
+        fontFamily: "'Fira Code', 'Consolas', monospace",
+        fontSize: "14px",
+        resize: "vertical",
+        outline: "none",
+        lineHeight: 1.6,
+      }}
     />
   );
 };

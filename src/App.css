@@ -1,53 +1,112 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f8;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Main container */
-  .container {
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  /* Code editor */
-  textarea {
-    width: 100%;
-    box-sizing: border-box;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Run button */
-  button {
-    background-color: #2d89ef;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  button:hover {
-    background-color: #1b5fbd;
-  }
-  
-  /* Output console */
-  pre {
-    background-color: #111;
-    color: #0f0;
-    padding: 12px;
-    min-height: 120px;
-    border-radius: 4px;
-    overflow-x: auto;
-  }
-  
+  background: #0a0a0f;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: radial-gradient(ellipse at center, #0d1117 0%, #010409 100%);
+}
+
+.compiler-card {
+  background: linear-gradient(145deg, #0d1117 0%, #161b22 100%);
+  padding: 32px;
+  width: 700px;
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+.card-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.15);
+  color: #00d4ff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.card-header h1 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.editor-section,
+.input-section,
+.output-section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: #8b949e;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-textarea {
+  width: 100%;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 16px;
+  color: #c9d1d9;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-textarea:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.input-textarea::placeholder {
+  color: #484f58;
+}
+
+.card-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.tag {
+  background: rgba(139, 148, 158, 0.1);
+  color: #8b949e;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}

@@ -2,12 +2,13 @@ import { useState } from "react";
 import CodeEditor from "./components/CodeEditor";
 import OutputConsole from "./components/OutputConsole";
 import RunButton from "./components/RunButton";
+import ElectricBorder from "./components/ElectricBorder";
 import { runJavaCode } from "./utils/pistonApi";
 import "./App.css";
 
 const defaultCode = `class Main {
   public static void main(String[] args) {
-    System.out.println("arjun");
+    System.out.println("Hello World");
   }
 }`;
 
@@ -15,34 +16,58 @@ function App() {
   const [code, setCode] = useState(defaultCode);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [isRunning, setIsRunning] = useState(false);
 
   const handleRun = async () => {
+    setIsRunning(true);
     try {
       const result = await runJavaCode(code, input);
       setOutput(result.run.stdout || result.run.stderr);
     } catch {
       setOutput("Execution failed");
     }
+    setIsRunning(false);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="app-container">
+      <ElectricBorder color="#00d4ff" chaos={0.15} speed={1.2} borderRadius={20}>
+        <div className="compiler-card">
+          <div className="card-header">
+            <span className="badge">SHIFT13</span>
+            <h1>Hawkins Code Arena</h1>
+            <p className="subtitle">Where keys don’t mean what they type.</p>
+          </div>
 
-        <div className="container">
-      <h2>Java Online Compiler (Custom Keyboard Mapping)</h2>
-      </div>
-      <CodeEditor code={code} setCode={setCode} />
+          <div className="editor-section">
+            <label>Code Editor</label>
+            <CodeEditor code={code} setCode={setCode} />
+          </div>
 
-      <textarea
-        placeholder="Program Input"
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        style={{ width: "100%", marginTop: "10px" }}
-      />
+          <div className="input-section">
+            <label>Program Input</label>
+            <textarea
+              className="input-textarea"
+              placeholder="Enter input for your program..."
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              rows={3}
+            />
+          </div>
 
-      <RunButton onRun={handleRun} />
+          <RunButton onRun={handleRun} isRunning={isRunning} />
 
-      <OutputConsole output={output} />
+          <div className="output-section">
+            <label>Output</label>
+            <OutputConsole output={output} />
+          </div>
+
+          <div className="card-footer">
+            <span className="tag">Live</span>
+            <span className="tag">v1.0</span>
+          </div>
+        </div>
+      </ElectricBorder>
     </div>
   );
 }
