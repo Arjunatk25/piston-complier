@@ -6,15 +6,17 @@ import ElectricBorder from "./components/ElectricBorder";
 import { runJavaCode } from "./utils/pistonApi";
 import "./App.css";
 
-const defaultCode = `class Main {
+const defaultCode = `import java.util.Scanner;
+
+class Main {
   public static void main(String[] args) {
-    System.out.println("Hello World");
+  System.out.println("Haaaai soldiers");
   }
 }`;
 
 function App() {
   const [code, setCode] = useState(defaultCode);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("10\n20\n30");
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
@@ -22,9 +24,9 @@ function App() {
     setIsRunning(true);
     try {
       const result = await runJavaCode(code, input);
-      setOutput(result.run.stdout || result.run.stderr);
-    } catch {
-      setOutput("Execution failed");
+      setOutput(result || "No output");
+    } catch (error: any) {
+      setOutput("Execution failed: " + (error.message || "Unknown error"));
     }
     setIsRunning(false);
   };
@@ -36,7 +38,7 @@ function App() {
           <div className="card-header">
             <span className="badge">SHIFT13</span>
             <h1>Hawkins Code Arena</h1>
-            <p className="subtitle">Where keys don’t mean what they type.</p>
+            <p className="subtitle">Where keys don't mean what they type.</p>
           </div>
 
           <div className="editor-section">
@@ -50,7 +52,7 @@ function App() {
               className="input-textarea"
               placeholder="Enter input for your program..."
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={(e) => setInput(e.target.value)}
               rows={3}
             />
           </div>

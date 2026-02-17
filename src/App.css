@@ -110,3 +110,40 @@ label {
   font-size: 12px;
   font-weight: 500;
 }
+
+.language-selector {
+  margin-bottom: 20px;
+}
+
+.language-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.lang-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 12px 20px;
+  background: #0d1117;
+  border: 2px solid #30363d;
+  border-radius: 10px;
+  color: #8b949e;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+  transform: translateY(-2px);
+}
+
+.lang-btn.active {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: #00d4ff;
+  color: #00d4ff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
