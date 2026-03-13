@@ -13,14 +13,14 @@ class Main {
   Scanner sc=new Scanner(System.in);
   int a=sc.nextInt();
   int b=sc.nextInt();
-  System.out.println("Haaaai soldiers");
+  System.out.println("Haaaai soldiers!! 🪖");
   System.out.println(a+b);
   }
 }`;
 
 function App() {
   const [code, setCode] = useState(defaultCode);
-  const [input, setInput] = useState("10\n20\n30");
+  const [input, setInput] = useState("10\n20");
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
@@ -37,11 +37,11 @@ function App() {
 
   return (
     <div className="app-container">
-      <ElectricBorder color="#00d4ff" chaos={0.15} speed={1.2} borderRadius={20}>
+      <ElectricBorder color="#ff0000" chaos={0.15} speed={1.2} borderRadius={20}>
         <div className="compiler-card">
           <div className="card-header">
             <span className="badge">SHIFT13</span>
-            <h1>Hawkins Code Arena</h1>
+            <h1>🎈 IT: THE SEWER CODE</h1>
             <p className="subtitle">Where keys don't mean what they type.</p>
           </div>
 
