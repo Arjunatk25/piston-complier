@@ -40,7 +40,14 @@ function App() {
       <ElectricBorder color="#ff0000" chaos={0.15} speed={1.2} borderRadius={20}>
         <div className="compiler-card">
           <div className="card-header">
-            <span className="badge">SHIFT13</span>
+            <a 
+              href="https://drive.google.com/drive/folders/1iEUIZ5W-qkykrTUrQCKrenwt9D0TGx3_?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="badge"
+            >
+              SHIFT13
+            </a>
             <h1>🎈 IT: THE SEWER CODE</h1>
             <p className="subtitle">Where keys don't mean what they type.</p>
           </div>
